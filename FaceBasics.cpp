@@ -167,7 +167,8 @@ int CFaceBasics::Run(HINSTANCE hInstance, int nCmdShow)
             // If a dialog message will be taken care of by the dialog proc
             if (hWndApp && IsDialogMessageW(hWndApp, &msg))
             {
-                continue;
+				// SL: That was prevent use to close the app when hitting the X close button
+                //continue;
             }
 
             TranslateMessage(&msg);
