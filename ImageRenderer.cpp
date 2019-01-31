@@ -277,7 +277,7 @@ HRESULT ImageRenderer::DrawBackground(BYTE* pImage, unsigned long cbImage)
 void ImageRenderer::DrawFaceFrameResults(int iFace, const RectI* pFaceBox, const PointF* pFacePoints, const Vector4* pFaceRotation, const DetectionResult* pFaceProperties, const D2D1_POINT_2F* pFaceTextLayout)
 {
     // draw the face frame results only if the face bounding box is valid
-    if (ValidateFaceBoxAndPoints(pFaceBox, pFacePoints))
+    //if (ValidateFaceBoxAndPoints(pFaceBox, pFacePoints))
     {
         ID2D1SolidColorBrush* brush = m_pFaceBrush[iFace];
 
@@ -291,8 +291,8 @@ void ImageRenderer::DrawFaceFrameResults(int iFace, const RectI* pFaceBox, const
         // draw each face point
         for (int i = 0; i < FacePointType::FacePointType_Count; i++)
         {
-            D2D1_ELLIPSE facePoint= D2D1::Ellipse(D2D1::Point2F(pFacePoints[i].X, pFacePoints[i].Y), c_FacePointRadius, c_FacePointRadius);
-            m_pRenderTarget->DrawEllipse(facePoint, brush, c_FacePointThickness);
+            //D2D1_ELLIPSE facePoint= D2D1::Ellipse(D2D1::Point2F(pFacePoints[i].X, pFacePoints[i].Y), c_FacePointRadius, c_FacePointRadius);
+            //m_pRenderTarget->DrawEllipse(facePoint, brush, c_FacePointThickness);
         }
 
         std::wstring faceText = L"";

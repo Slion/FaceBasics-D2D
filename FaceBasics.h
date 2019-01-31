@@ -103,12 +103,17 @@ private:
     /// <returns>success or failure</returns>
     bool                   SetStatusMessage(_In_z_ WCHAR* szMessage, ULONGLONG nShowTimeMsec, bool bForce);
 
+	static bool IsValidRect(const RectI& aRect);
+	static bool IsNullVetor(const Vector4& aVector);
+	static bool IsNullPoint(const CameraSpacePoint& aPoint);
+
     HWND                   m_hWnd;
     INT64                  m_nStartTime;
     INT64                  m_nLastCounter;
     double                 m_fFreq;
     ULONGLONG              m_nNextStatusTime;
     DWORD                  m_nFramesSinceUpdate;
+	UINT64 m_TrackingId;
 
     // Current Kinect
     IKinectSensor*         m_pKinectSensor;
@@ -123,10 +128,10 @@ private:
     IBodyFrameReader*      m_pBodyFrameReader;
 
     // Face sources
-    IFaceFrameSource*	   m_pFaceFrameSources[BODY_COUNT];
+    IHighDefinitionFaceFrameSource*	   m_pFaceFrameSources;
 
     // Face readers
-    IFaceFrameReader*	   m_pFaceFrameReaders[BODY_COUNT];
+    IHighDefinitionFaceFrameReader*	   m_pFaceFrameReaders;
 
     // Direct2D
     ImageRenderer*         m_pDrawDataStreams;
